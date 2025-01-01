@@ -118,11 +118,78 @@ const SkillsSection = () => {
   );
 };
 
+/* education container */
+
+const ResumeSection = () => {
+  return (
+    <section className={styles.resumeSection}>
+      <div className={styles.section}>
+        <div className={styles.header}>
+          <img
+            src="/icons/job.png"
+            alt="Experience Icon"
+            className={styles.icon}
+          />
+          <h2>My Experience</h2>
+        </div>
+
+        <div className={styles.card}>
+          <div className={styles.date}>2022 - Present</div>
+          <h3>LEAD DEVELOPER</h3>
+          <p>Blockdots, London</p>
+        </div>
+
+        <div className={styles.card}>
+          <div className={styles.date}>2021 - 2022</div>
+          <h3>FULL STACK WEB DEVELOPER</h3>
+          <p>Parsons, The New School</p>
+        </div>
+
+        <div className={styles.card}>
+          <div className={styles.date}>2020 - 2021</div>
+          <h3>UI DESIGNER</h3>
+          <p>House of Life, Leeds</p>
+        </div>
+      </div>
+
+      <div className={styles.section}>
+        <div className={styles.header}>
+          <img
+            src="/icons/edu.png"
+            alt="Education Icon"
+            className={styles.icon}
+          />
+          <h2>My Education</h2>
+        </div>
+
+        <div className={styles.card}>
+          <div className={styles.date}>2020 - 2023</div>
+          <h3>PROGRAMMING COURSE</h3>
+          <p>Harvard University</p>
+        </div>
+
+        <div className={styles.card}>
+          <div className={styles.date}>2016 - 2020</div>
+          <h3>GRAPHIC DESIGN COURSE</h3>
+          <p>University of Denmark</p>
+        </div>
+
+        <div className={styles.card}>
+          <div className={styles.date}>2012 - 2015</div>
+          <h3>WEB DESIGN COURSE</h3>
+          <p>University of California</p>
+        </div>
+      </div>
+    </section>
+  );
+};
+
 export default function Home() {
   return (
     <>
       <HomeContainer />
       <SkillsSection />
+      <ResumeSection />
     </>
   );
 }
