@@ -6,7 +6,7 @@ import {
   FaDribbble,
   FaGithub,
 } from "react-icons/fa";
-import styles from "./page.module.css";
+import styles from "../styles/Home.module.css";
 
 export default function Home() {
   return (
