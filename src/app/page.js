@@ -8,8 +8,7 @@ import {
 } from "react-icons/fa";
 import styles from "./page.module.css";
 
-/* Banner Section Start*/
-export default function Home() {
+const HomeContainer = () => {
   return (
     <div className={styles.container}>
       <nav className={styles.nav}>
@@ -73,6 +72,57 @@ export default function Home() {
       </main>
     </div>
   );
+};
+
+const SkillsSection = () => {
+  const skills = [
+    { name: "Photoshop", percentage: "92%", icon: "/icons/photoshop.png" },
+    { name: "Java", percentage: "80%", icon: "/icons/java.png" },
+    { name: "Python", percentage: "85%", icon: "/icons/python.png" },
+    { name: "WordPress", percentage: "99%", icon: "/icons/wordpress.png" },
+    { name: "React", percentage: "89%", icon: "/icons/react.png" },
+    { name: "MongoDB", percentage: "93%", icon: "/icons/mongodb.png" },
+    { name: "JavaScript", percentage: "93%", icon: "/icons/js.png" },
+    { name: "Html", percentage: "93%", icon: "/icons/html.png" },
+    { name: "CSS", percentage: "93%", icon: "/icons/css.png" },
+    { name: "MySql", percentage: "93%", icon: "/icons/mysql.png" },
+    { name: "Node.js", percentage: "93%", icon: "/icons/node.png" },
+    { name: "Next.js", percentage: "93%", icon: "/icons/next.png" },
+    { name: "Spring Boot", percentage: "93%", icon: "/icons/spring.png" },
+    { name: "Flutter", percentage: "93%", icon: "/icons/flutter.png" },
+  ];
+
+  return (
+    <section className={styles.skillsSection}>
+      <h1>My Skills</h1>
+      <p className={styles.skillsDescription}>
+        We put your ideas and thus your wishes in the form of a unique web
+        project that inspires you and you customers.
+      </p>
+      <div className={styles.skillsContainer}>
+        {skills.map((skill, index) => (
+          <div key={index} className={styles.skillItem}>
+            <Image
+              src={skill.icon}
+              alt={skill.name}
+              width={50}
+              height={50}
+              className={styles.skillIcon}
+            />
+            <p className={styles.skillPercentage}>{skill.percentage}</p>
+            <p className={styles.skillName}>{skill.name}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+};
+
+export default function Home() {
+  return (
+    <>
+      <HomeContainer />
+      <SkillsSection />
+    </>
+  );
 }
-/* Banner Section End */
-/* 2nd section start */

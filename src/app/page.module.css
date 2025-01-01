@@ -140,6 +140,86 @@
   }
 }
 
+/* skill Container Css*/
+.skillsSection {
+  text-align: center;
+  padding: 60px 40px;
+  background-color: #000;
+}
+
+.skillsSection h1 {
+  color: #0f97b7;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.skillsDescription {
+  max-width: 800px;
+  margin: 0 auto 40px;
+  color: #fcfaf6;
+  line-height: 1.6;
+}
+
+.skillsContainer {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.skillItem {
+  background: rgba(130, 87, 230, 0.05);
+  border-radius: 10px;
+  padding: 20px;
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease;
+  background: #f9f5ec;
+}
+
+.skillItem:hover {
+  transform: translateY(-5px);
+  background: #cfeaf1;
+}
+
+.skillIcon {
+  width: 150px;
+  height: 150px;
+  margin-bottom: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.skillPercentage {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  margin: 10px 0;
+}
+
+.skillName {
+  color: #18130e;
+  font-weight: 500;
+}
+.skillName:hover {
+  color: #031e25;
+}
+
+.skillIcon {
+  margin-bottom: 15px;
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+}
+
+.skillItem:hover .skillIcon {
+  filter: grayscale(0%);
+}
+
+/* Mobile css For Banner Container*/
 @media (max-width: 768px) {
   .container {
     padding: 1rem;
@@ -157,5 +237,24 @@
     font-size: 3rem;
   }
   .new {
+  }
+}
+/* Mobile css For Skill Container*/
+
+@media (max-width: 1200px) {
+  .skillsContainer {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .skillsContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .skillsContainer {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
