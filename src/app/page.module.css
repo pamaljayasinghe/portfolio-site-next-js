@@ -178,7 +178,7 @@
   flex-direction: column;
   align-items: center;
   transition: transform 0.3s ease;
-  background: #f9f5ec;
+  background: #fffbef;
 }
 
 .skillItem:hover {
@@ -253,32 +253,43 @@
 }
 
 .card {
-  background: #fcfaf6;
+  background: linear-gradient(
+    135deg,
+    #ffebad 0%,
+    #ffda6b 20%,
+    #ffd65a 39%,
+    #ffda6b 50%,
+    #ffd65a 70%,
+    #ffda6b 89%,
+    #ffebad 100%
+  );
+  position: relative;
+  overflow: hidden;
   border-radius: 15px;
   padding: 20px;
   margin-bottom: 20px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-.card:hover {
-  background-color: #e7f5f8;
 }
 
 .date {
   color: #3facc5;
   font-size: 18px;
   margin-bottom: 10px;
+  position: relative;
 }
 
 .card h3 {
   color: #031e25;
   font-size: 24px;
   margin: 0 0 10px 0;
+  position: relative;
 }
 
 .card p {
   color: #666;
   font-size: 16px;
   margin: 0;
+  position: relative;
 }
 
 /* Mobile css For Banner Container*/
