@@ -31,7 +31,7 @@ export default function Home() {
 
       <main className={styles.main}>
         <div className={styles.content}>
-          <h2 className={styles.title}>I am Gerold</h2>
+          <h2 className={styles.title}>I am Pamal Jayasinghe</h2>
           <h1 className={styles.subtitle}>
             Web Developer +<br />
             UX Designer

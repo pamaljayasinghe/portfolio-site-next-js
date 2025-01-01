@@ -1,7 +1,7 @@
 .container {
   min-height: 100vh;
   padding: 2rem 8rem;
-  background: #f8f5ff;
+  background: #fcfaf6;
 }
 
 .nav {
@@ -22,13 +22,13 @@
 }
 
 .menu a {
-  color: #333;
+  color: #031e25;
   text-decoration: none;
   font-size: 1rem;
 }
 
 .hireButton {
-  background: #7048e8;
+  background: #0f97b7;
   color: white;
   border: none;
   padding: 0.8rem 1.5rem;
@@ -56,7 +56,7 @@
 
 .subtitle {
   font-size: 4rem;
-  color: #7048e8;
+  color: #0f97b7;
   line-height: 1.2;
   margin-bottom: 1.5rem;
 }
@@ -75,7 +75,7 @@
 }
 
 .downloadBtn {
-  background: #7048e8;
+  background: #0f97b7;
   color: white;
   border: none;
   padding: 1rem 2rem;
@@ -95,12 +95,12 @@
 .socialLinks a {
   width: 40px;
   height: 40px;
-  border: 1px solid #7048e8;
+  border: 1px solid #0f97b7;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #7048e8;
+  color: #0f97b7;
 }
 
 .imageWrapper {
@@ -112,6 +112,32 @@
 .profileImage {
   border-radius: 2rem;
   object-fit: cover;
+}
+
+.profileImage {
+  transition: transform 0.3s ease;
+}
+
+.profileImage:hover {
+  /* Choose one effect: */
+
+  /* Gentle shake */
+  animation: shake 0.5s ease infinite;
+}
+
+@keyframes shake {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(1deg);
+  }
+  75% {
+    transform: rotate(-1deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
 }
 
 @media (max-width: 768px) {
