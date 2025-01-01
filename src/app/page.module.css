@@ -239,7 +239,7 @@
   .new {
   }
 }
-/* Mobile css For Skill Container*/
+/* Mobile css For Skill Container
 
 @media (max-width: 1200px) {
   .skillsContainer {
@@ -257,4 +257,37 @@
   .skillsContainer {
     grid-template-columns: repeat(2, 1fr);
   }
+}
+*/
+@media (max-width: 768px) {
+  .skillsSection {
+    padding: 40px 0;
+    overflow: hidden;
+  }
+
+  .skillsContainer {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 15px;
+    padding: 20px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Firefox */
+  }
+
+  .skillsContainer::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }
+
+  .skillItem {
+    flex: 0 0 calc(50% - 10px);
+    scroll-snap-align: start;
+    min-width: 140px;
+  }
+}
+
+/* Add smooth scrolling behavior */
+.skillsContainer {
+  scroll-behavior: smooth;
 }
