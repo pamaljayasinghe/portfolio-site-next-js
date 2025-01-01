@@ -8,6 +8,7 @@ import {
 } from "react-icons/fa";
 import styles from "./page.module.css";
 
+/* Banner Section Start*/
 export default function Home() {
   return (
     <div className={styles.container}>
@@ -61,7 +62,7 @@ export default function Home() {
         </div>
         <div className={styles.imageWrapper}>
           <Image
-            src="/image.png"
+            src="/img/me.png"
             alt="Gerold's profile"
             width={500}
             height={500}
@@ -73,3 +74,5 @@ export default function Home() {
     </div>
   );
 }
+/* Banner Section End */
+/* 2nd section start */
