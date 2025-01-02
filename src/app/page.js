@@ -16,7 +16,7 @@ const HomeContainer = () => {
       <nav className={styles.nav}>
         <div className={styles.logo}>
           <Link href="/">
-            <span>mail@pamal.me</span>
+            <img src="/img/logo.gif" />
           </Link>
         </div>
         <div className={styles.menu}>
@@ -383,9 +383,100 @@ const WorksSection = () => {
   );
 };
 
+const CodeRainOverlay = () => {
+  const [characters, setCharacters] = useState([]);
+  const codeChars =
+    "01アイウエオカキクケコサシスセソタチツテトナニヌネノ></@#$%^&*{}[]+-=";
+
+  // You can adjust these opacity values
+  const minOpacity = 0.05; // Minimum opacity (0 to 1)
+  const maxOpacity = 0.2; // Maximum opacity (0 to 1)
+
+  useEffect(() => {
+    const initialChars = Array.from({ length: 75 }, () => ({
+      char: codeChars[Math.floor(Math.random() * codeChars.length)],
+      x: Math.random() * 100,
+      y: 100 + Math.random() * 50,
+      speed: 0.3 + Math.random() * 0.7,
+      opacity: minOpacity + Math.random() * (maxOpacity - minOpacity), // Using the opacity range
+    }));
+
+    setCharacters(initialChars);
+
+    const animationInterval = setInterval(() => {
+      setCharacters((prevChars) =>
+        prevChars.map((char) => {
+          let newY = char.y - char.speed;
+
+          if (newY < -10) {
+            newY = 100 + Math.random() * 20;
+            return {
+              ...char,
+              y: newY,
+              x: Math.random() * 100,
+              char: codeChars[Math.floor(Math.random() * codeChars.length)],
+              opacity: minOpacity + Math.random() * (maxOpacity - minOpacity), // Using the opacity range
+            };
+          }
+
+          return { ...char, y: newY };
+        })
+      );
+    }, 50);
+
+    return () => clearInterval(animationInterval);
+  }, []);
+
+  return (
+    <div
+      style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        pointerEvents: "none",
+        zIndex: 1,
+        overflow: "hidden",
+      }}
+    >
+      {characters.map((char, index) => (
+        <div
+          key={index}
+          style={{
+            position: "absolute",
+            left: `${char.x}%`,
+            top: `${char.y}%`,
+            color: "#0f97b7",
+            fontFamily: "monospace",
+            fontSize: "20px",
+            opacity: char.opacity,
+            transform: "translate(-50%, -50%)",
+            textShadow: "0 0 8px rgba(15, 151, 183, 0.8)",
+            animation: "fadeIn 0.5s ease-in",
+          }}
+        >
+          {char.char}
+        </div>
+      ))}
+      <style jsx>{`
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
+        }
+      `}</style>
+    </div>
+  );
+};
+
 export default function Home() {
   return (
     <>
+      <CodeRainOverlay />
       <HomeContainer />
       <SkillsSection />
       <ResumeSection />
