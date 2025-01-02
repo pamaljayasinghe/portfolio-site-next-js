@@ -5,16 +5,115 @@
   background: #fcfaf6;
 }
 
+.logo img {
+  max-height: 40px;
+  width: auto;
+}
+
+.desktopMenu {
+  display: flex;
+  gap: 2rem;
+}
+
+.desktopMenu a {
+  color: #031e25;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.desktopMenu a:hover {
+  color: #0f97b7;
+}
+
+.mobileMenuButton {
+  display: none;
+  background: none;
+  border: none;
+  color: #031e25;
+  cursor: pointer;
+  z-index: 50;
+  padding: 0.5rem;
+}
+
+.mobileMenu {
+  display: none;
+}
+
+.hireButton {
+  background: #0f97b7;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 2rem;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.hireButton:hover {
+  background: #0d8aa8;
+}
+
+@media (max-width: 768px) {
+  .desktopMenu,
+  .desktopHireButton {
+    display: none;
+  }
+
+  .mobileMenuButton {
+    display: block;
+  }
+
+  .mobileMenu {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #fcfaf6;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 40;
+  }
+
+  .mobileMenuOpen {
+    transform: translateX(0);
+  }
+
+  .mobileMenuContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    gap: 2rem;
+    padding: 2rem;
+  }
+
+  .mobileMenuContent a {
+    color: #031e25;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+
+  .mobileMenuContent .hireButton {
+    margin-top: 1rem;
+  }
+
+  .nav {
+    margin-bottom: 2rem;
+  }
+}
 .nav {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 4rem;
-}
-
-.logo span {
-  color: #333;
-  font-size: 1.1rem;
+  padding: 1rem 0;
 }
 
 .menu {
@@ -26,16 +125,91 @@
   color: #031e25;
   text-decoration: none;
   font-size: 1rem;
+  transition: color 0.3s ease;
 }
 
-.hireButton {
-  background: #0f97b7;
-  color: white;
+.menu a:hover {
+  color: #0f97b7;
+}
+
+.logo img {
+  max-height: 40px;
+  width: auto;
+}
+.menuToggle {
+  display: none;
+  background: none;
   border: none;
-  padding: 0.8rem 1.5rem;
-  border-radius: 2rem;
+  font-size: 24px;
   cursor: pointer;
-  font-size: 1rem;
+  color: #031e25;
+  z-index: 1000;
+  padding: 0.5rem;
+}
+
+.mobileMenu {
+  display: none;
+}
+
+.desktopButton {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .menu {
+    display: none;
+  }
+
+  .menuToggle {
+    display: block;
+  }
+
+  .desktopButton {
+    display: none;
+  }
+
+  .mobileMenu {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #fcfaf6;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 999;
+  }
+
+  .mobileMenuOpen {
+    transform: translateX(0);
+  }
+
+  .mobileMenuContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    gap: 2rem;
+    padding: 2rem;
+  }
+
+  .mobileMenuContent a {
+    color: #031e25;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+
+  .mobileMenuContent a:hover {
+    color: #0f97b7;
+  }
+
+  .logo {
+    z-index: 1000;
+  }
 }
 
 .main {
@@ -453,7 +627,7 @@
 
 .worktitle {
   font-size: 2.5rem;
-  color: #6c5ce7;
+  color: #0f97b7;
   text-align: center;
   margin-bottom: 40px;
 }
@@ -478,7 +652,7 @@
 
 .filterButton:hover,
 .filterButton.active {
-  background: #6c5ce7;
+  background: #0f97b7;
   color: white;
 }
 
@@ -633,7 +807,7 @@
 
 .blogSection h1 {
   font-size: 3rem;
-  color: #6c5ce7;
+  color: #0f97b7;
   text-align: center;
   margin-bottom: 1rem;
 }
@@ -682,7 +856,7 @@
   position: absolute;
   top: 20px;
   left: 20px;
-  background: #6c5ce7;
+  background: #0f97b7;
   color: white;
   padding: 8px 16px;
   border-radius: 20px;

@@ -2,6 +2,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
+import { Menu, X } from "react-icons/fa";
+
 import {
   FaFacebookF,
   FaLinkedinIn,
@@ -12,15 +14,23 @@ import {
 import styles from "./page.module.css";
 
 const HomeContainer = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const handleMenuToggle = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
     <div className={styles.container}>
       <nav className={styles.nav}>
         <div className={styles.logo}>
           <Link href="/">
-            <img src="/img/logo.gif" />
+            <img src="/img/logo.gif" alt="Logo" />
           </Link>
         </div>
-        <div className={styles.menu}>
+
+        {/* Desktop Menu */}
+        <div className={`${styles.menu} ${styles.desktopMenu}`}>
           <Link href="/services">Services</Link>
           <Link href="/works">Works</Link>
           <Link href="/resume">Resume</Link>
@@ -28,7 +38,48 @@ const HomeContainer = () => {
           <Link href="/testimonials">Testimonials</Link>
           <Link href="/contact">Contact</Link>
         </div>
-        <button className={styles.hireButton}>Hire me!</button>
+
+        {/* Mobile Menu Toggle Button */}
+        <button
+          className={styles.menuToggle}
+          onClick={handleMenuToggle}
+          aria-label="Toggle menu"
+        >
+          {isMenuOpen ? "✕" : "☰"}
+        </button>
+
+        {/* Mobile Menu */}
+        <div
+          className={`${styles.mobileMenu} ${
+            isMenuOpen ? styles.mobileMenuOpen : ""
+          }`}
+        >
+          <div className={styles.mobileMenuContent}>
+            <Link href="/services" onClick={() => setIsMenuOpen(false)}>
+              Services
+            </Link>
+            <Link href="/works" onClick={() => setIsMenuOpen(false)}>
+              Works
+            </Link>
+            <Link href="/resume" onClick={() => setIsMenuOpen(false)}>
+              Resume
+            </Link>
+            <Link href="/skills" onClick={() => setIsMenuOpen(false)}>
+              Skills
+            </Link>
+            <Link href="/testimonials" onClick={() => setIsMenuOpen(false)}>
+              Testimonials
+            </Link>
+            <Link href="/contact" onClick={() => setIsMenuOpen(false)}>
+              Contact
+            </Link>
+          </div>
+        </div>
+
+        {/* Desktop Hire Button */}
+        <button className={`${styles.hireButton} ${styles.desktopHireButton}`}>
+          Hire me!
+        </button>
       </nav>
 
       <main className={styles.main}>
@@ -315,7 +366,7 @@ const WorksSection = () => {
 
   return (
     <section className={styles.worksSection}>
-      <h2 className={styles.title}>My Recent Works</h2>
+      <h2 className={styles.worktitle}>My Recent Works</h2>
 
       <div className={styles.filterMenu}>
         {categories.map((category) => (
