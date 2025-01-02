@@ -107,7 +107,7 @@ const SkillsSection = () => {
     if (isAutoPlaying) {
       slideInterval.current = setInterval(() => {
         setCurrentSlide((prev) => (prev + 1) % totalSlides);
-      }, 5000);
+      }, 3000);
     }
     return () => clearInterval(slideInterval.current);
   }, [isAutoPlaying, totalSlides]);
@@ -168,7 +168,7 @@ const SkillsSection = () => {
     </section>
   );
 };
-
+/* Resume */
 const ResumeSection = () => {
   return (
     <section className={styles.resumeSection}>
@@ -233,12 +233,145 @@ const ResumeSection = () => {
   );
 };
 
+/* Previous Work */
+const works = [
+  {
+    id: 1,
+    title: "Barbershop Kel: Modern Barber Website Design for a Dutch Client",
+    category: "Webs",
+    image: "/img/web1.png",
+    url: "https://www.barbershopkel.nl/",
+    description:
+      "Developed a sleek and user-friendly website for Barbershop Kel, a contemporary barbershop in Goor, Netherlands. The site features online booking, service listings, and responsive design to enhance client engagement.",
+  },
+  {
+    id: 2,
+    title:
+      "Window Cleaning Round Rock TX: Comprehensive Website Design for a UK Client",
+    category: "Webs",
+    image: "/img/web3.png",
+    url: "https://windowcleaningroundrocktx.com/",
+    description:
+      "Developed a professional and responsive website for Window Cleaning Round Rock TX, a family-owned business offering window cleaning, pressure washing, gutter cleaning, and Christmas lighting services in Round Rock, Texas. The site features service overviews, customer testimonials, and an intuitive contact form to enhance user engagement.",
+  },
+  {
+    id: 3,
+    title:
+      "NyxLab: Professional IT and Cloud Services Website for a French Client",
+    category: "Webs",
+    image: "/work.png",
+    url: "https://nyxlab.fr/",
+    description:
+      "Developed a modern and responsive website for NyxLab, a French company specializing in cloud services, IT management, and website creation. The site showcases their service offerings, emphasizes security and scalability, and provides an intuitive user experience to attract and engage potential clients.",
+  },
+  {
+    id: 4,
+    title:
+      "Fortitude Academy of Excellence: Comprehensive Educational Services Website for a U.S. Client",
+    category: "Webs",
+    image: "/img/web2.png",
+    url: "https://fortitudeacademyofexcellence.com/",
+    description:
+      "Developed a professional and responsive website for Fortitude Academy of Excellence, a premier educational service provider in the United States. The site features detailed service offerings, including NCAA-certified coursework, ACT preparation, K-12 tutoring, and specialized support for students with Individualized Education Programs (IEP) or 504 Plans. It also includes user-friendly navigation, enrollment information, and contact forms to enhance user engagement.",
+  },
+];
+
+const categories = ["All", "Webs", "App", "Other", "UX/UI"];
+
+const WorksSection = () => {
+  const [activeCategory, setActiveCategory] = useState("All");
+  const [selectedWork, setSelectedWork] = useState(null);
+
+  const filteredWorks = works.filter((work) =>
+    activeCategory === "All" ? true : work.category === activeCategory
+  );
+
+  const openModal = (work) => {
+    setSelectedWork(work);
+  };
+
+  const closeModal = () => {
+    setSelectedWork(null);
+  };
+
+  return (
+    <section className={styles.worksSection}>
+      <h2 className={styles.title}>My Recent Works</h2>
+
+      <div className={styles.filterMenu}>
+        {categories.map((category) => (
+          <button
+            key={category}
+            className={`${styles.filterButton} ${
+              activeCategory === category ? styles.active : ""
+            }`}
+            onClick={() => setActiveCategory(category)}
+          >
+            {category}
+          </button>
+        ))}
+      </div>
+
+      <div className={styles.worksGrid}>
+        {filteredWorks.map((work) => (
+          <div
+            key={work.id}
+            className={styles.workCard}
+            onClick={() => openModal(work)}
+          >
+            <div className={styles.imageWrapper}>
+              <Image
+                src={work.image}
+                alt={work.title}
+                width={500}
+                height={300}
+                className={styles.workImage}
+              />
+            </div>
+            <div className={styles.workInfo}>
+              <h3>{work.title}</h3>
+              <p>{work.category}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {selectedWork && (
+        <div className={styles.modalOverlay} onClick={closeModal}>
+          <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
+            <button className={styles.closeButton} onClick={closeModal}>
+              ×
+            </button>
+            <div className={styles.modalContent}>
+              <Image
+                src={selectedWork.image}
+                alt={selectedWork.title}
+                width={500}
+                height={300}
+                className={styles.modalImage}
+              />
+              <h3>{selectedWork.title}</h3>
+              <p className={styles.modalDescription}>
+                {selectedWork.description}
+              </p>
+              <Link href={selectedWork.url} className={styles.viewProjectBtn}>
+                View Project
+              </Link>
+            </div>
+          </div>
+        </div>
+      )}
+    </section>
+  );
+};
+
 export default function Home() {
   return (
     <>
       <HomeContainer />
       <SkillsSection />
       <ResumeSection />
+      <WorksSection />
     </>
   );
 }
