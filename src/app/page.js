@@ -7,6 +7,7 @@ import {
   FaLinkedinIn,
   FaDribbble,
   FaGithub,
+  FaMedium,
 } from "react-icons/fa";
 import styles from "./page.module.css";
 
@@ -53,7 +54,7 @@ const HomeContainer = () => {
                 <FaLinkedinIn />
               </Link>
               <Link href="#" aria-label="Dribbble">
-                <FaDribbble />
+                <FaMedium />
               </Link>
               <Link href="#" aria-label="GitHub">
                 <FaGithub />
@@ -390,7 +391,7 @@ const CodeRainOverlay = () => {
 
   // You can adjust these opacity values
   const minOpacity = 0.05; // Minimum opacity (0 to 1)
-  const maxOpacity = 0.2; // Maximum opacity (0 to 1)
+  const maxOpacity = 0.15; // Maximum opacity (0 to 1)
 
   useEffect(() => {
     const initialChars = Array.from({ length: 75 }, () => ({
@@ -473,6 +474,116 @@ const CodeRainOverlay = () => {
   );
 };
 
+const BlogSection = () => {
+  const blogs = [
+    {
+      id: 1,
+      category: "CODING",
+      title: "Maximizing User Engagement in Spring Boot Applications",
+      date: "Jan 03, 2025",
+      comments: "No Comments",
+      image: "/img/artical1.png",
+      link: "https://medium.com/@pamaljayasinghe340/maximizing-user-engagement-in-spring-boot-applications-a-comprehensive-guide-2e5660bce6eb",
+    },
+    {
+      id: 2,
+      category: "ANALYSIS",
+      title: "The Role Of Technology In Modern...",
+      date: "May 10, 2024",
+      comments: "No Comments",
+      image: "/img/blog2.jpg",
+      link: "/blog/technology-role",
+    },
+    {
+      id: 3,
+      category: "TECHNOLOGY",
+      title: "Digital Marketo To Their New Office.",
+      date: "May 10, 2024",
+      comments: "No Comments",
+      image: "/img/blog3.jpg",
+      link: "/blog/digital-marketo",
+    },
+  ];
+
+  return (
+    <section className={styles.blogSection}>
+      <h1 className={styles.blogTitle}>Recent Blogs</h1>
+      <p className={styles.blogDescription}>
+        We put your ideas and thus your wishes in the form of a unique web
+        project that inspires you and you customers.
+      </p>
+
+      <div className={styles.blogGrid}>
+        {blogs.map((blog) => (
+          <Link href={blog.link} key={blog.id} className={styles.blogCard}>
+            <div className={styles.blogImageWrapper}>
+              <Image
+                src={blog.image}
+                alt={blog.title}
+                width={400}
+                height={250}
+                className={styles.blogImage}
+              />
+              <span className={styles.blogCategory}>{blog.category}</span>
+            </div>
+            <div className={styles.blogInfo}>
+              <div className={styles.blogMeta}>
+                <span>
+                  <i className="far fa-calendar"></i> {blog.date}
+                </span>
+                <span>
+                  <i className="far fa-comments"></i> {blog.comments}
+                </span>
+              </div>
+              <h3 className={styles.blogTitle}>{blog.title}</h3>
+            </div>
+          </Link>
+        ))}
+      </div>
+    </section>
+  );
+};
+
+const Footer = () => {
+  return (
+    <footer className={styles.footer}>
+      <div className={styles.footerContent}>
+        <div className={styles.footerLogo}>
+          <Image
+            src="/img/logolight.gif"
+            alt="Logo"
+            width={200}
+            height={40}
+            className={styles.logo}
+          />
+        </div>
+
+        <nav className={styles.footerNav}>
+          <Link href="/services" className={styles.navLink}>
+            Services.
+          </Link>
+          <Link href="/works" className={styles.navLink}>
+            Works.
+          </Link>
+          <Link href="/skills" className={styles.navLink}>
+            Skills.
+          </Link>
+          <Link href="/experience" className={styles.navLink}>
+            Experience.
+          </Link>
+          <Link href="/blog" className={styles.navLink}>
+            Blog.
+          </Link>
+        </nav>
+
+        <div className={styles.footerCopyright}>
+          © 2025 All Rights Reserved by Pamal Jayasinghe
+        </div>
+      </div>
+    </footer>
+  );
+};
+
 export default function Home() {
   return (
     <>
@@ -481,6 +592,8 @@ export default function Home() {
       <SkillsSection />
       <ResumeSection />
       <WorksSection />
+      <BlogSection />
+      <Footer />
     </>
   );
 }
