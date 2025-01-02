@@ -16,7 +16,7 @@ const HomeContainer = () => {
       <nav className={styles.nav}>
         <div className={styles.logo}>
           <Link href="/">
-            <span>mail@gerolddesign.com</span>
+            <span>mail@pamal.me</span>
           </Link>
         </div>
         <div className={styles.menu}>
@@ -184,20 +184,20 @@ const ResumeSection = () => {
 
         <div className={styles.card}>
           <div className={styles.date}>2022 - Present</div>
-          <h3>LEAD DEVELOPER</h3>
-          <p>Blockdots, London</p>
+          <h3>FREELANCE WEB DESIGNER</h3>
+          <p>Fiverr.com</p>
         </div>
 
         <div className={styles.card}>
-          <div className={styles.date}>2021 - 2022</div>
-          <h3>FULL STACK WEB DEVELOPER</h3>
-          <p>Parsons, The New School</p>
+          <div className={styles.date}>2024 Mar - 2024 May</div>
+          <h3>WEBSITE MANAGER</h3>
+          <p>USA The Basketball Factory INC</p>
         </div>
 
         <div className={styles.card}>
-          <div className={styles.date}>2020 - 2021</div>
-          <h3>UI DESIGNER</h3>
-          <p>House of Life, Leeds</p>
+          <div className={styles.date}>2024 Mar - 2024 June</div>
+          <h3>FREELANCE WEBSITE DESIGNER</h3>
+          <p>Upwork.com</p>
         </div>
       </div>
 
@@ -212,21 +212,21 @@ const ResumeSection = () => {
         </div>
 
         <div className={styles.card}>
-          <div className={styles.date}>2020 - 2023</div>
-          <h3>PROGRAMMING COURSE</h3>
-          <p>Harvard University</p>
+          <div className={styles.date}>2023 Sep - Present</div>
+          <h3>BEng (Hons) Software Engineering</h3>
+          <p>University Of Westminster UK</p>
         </div>
 
         <div className={styles.card}>
-          <div className={styles.date}>2016 - 2020</div>
-          <h3>GRAPHIC DESIGN COURSE</h3>
-          <p>University of Denmark</p>
+          <div className={styles.date}> 2024 Nov </div>
+          <h3>Professional Certificate in Machine Learning</h3>
+          <p>IIT Professional Development Unit</p>
         </div>
 
         <div className={styles.card}>
-          <div className={styles.date}>2012 - 2015</div>
-          <h3>WEB DESIGN COURSE</h3>
-          <p>University of California</p>
+          <div className={styles.date}> 2024 Jan</div>
+          <h3>Google Crash Course Python</h3>
+          <p>Google</p>
         </div>
       </div>
     </section>

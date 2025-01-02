@@ -319,16 +319,7 @@
 }
 
 .card {
-  background: linear-gradient(
-    135deg,
-    #ffebad 0%,
-    #ffda6b 20%,
-    #ffd65a 39%,
-    #ffda6b 50%,
-    #ffd65a 70%,
-    #ffda6b 89%,
-    #ffebad 100%
-  );
+  background: #010f12;
   position: relative;
   overflow: hidden;
   border-radius: 15px;
@@ -351,14 +342,14 @@
 }
 
 .card h3 {
-  color: #031e25;
+  color: #fcfaf6;
   font-size: 24px;
   margin: 0 0 10px 0;
   position: relative;
 }
 
 .card p {
-  color: #666;
+  color: #eee0c6;
   font-size: 16px;
   margin: 0;
   position: relative;
