@@ -1,5 +1,7 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
+import { useState, useEffect, useRef } from "react";
 import {
   FaFacebookF,
   FaLinkedinIn,
@@ -75,6 +77,11 @@ const HomeContainer = () => {
 };
 
 const SkillsSection = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const slideInterval = useRef(null);
+  const skillsContainerRef = useRef(null);
+
   const skills = [
     { name: "Photoshop", percentage: "92%", icon: "/icons/photoshop.png" },
     { name: "Java", percentage: "80%", icon: "/icons/java.png" },
@@ -92,33 +99,75 @@ const SkillsSection = () => {
     { name: "Flutter", percentage: "93%", icon: "/icons/flutter.png" },
   ];
 
+  const isMobile = typeof window !== "undefined" && window.innerWidth <= 768;
+  const itemsPerSlide = isMobile ? 2 : 7;
+  const totalSlides = Math.ceil(skills.length / itemsPerSlide);
+
+  useEffect(() => {
+    if (isAutoPlaying) {
+      slideInterval.current = setInterval(() => {
+        setCurrentSlide((prev) => (prev + 1) % totalSlides);
+      }, 5000);
+    }
+    return () => clearInterval(slideInterval.current);
+  }, [isAutoPlaying, totalSlides]);
+
+  const handleDotClick = (index) => {
+    setCurrentSlide(index);
+  };
+
+  const getVisibleSkills = () => {
+    const startIndex = currentSlide * itemsPerSlide;
+    return skills.slice(startIndex, startIndex + itemsPerSlide);
+  };
+
   return (
     <section className={styles.skillsSection}>
-      <h1>My Skills</h1>
+      <h1 className={styles.skillsTitle}>My Skills</h1>
       <p className={styles.skillsDescription}>
         We put your ideas and thus your wishes in the form of a unique web
-        project that inspires you and you customers.
+        project that inspires you and your customers.
       </p>
-      <div className={styles.skillsContainer}>
-        {skills.map((skill, index) => (
-          <div key={index} className={styles.skillItem}>
-            <Image
-              src={skill.icon}
-              alt={skill.name}
-              width={50}
-              height={50}
-              className={styles.skillIcon}
+
+      <div
+        className={styles.sliderWrapper}
+        onMouseEnter={() => setIsAutoPlaying(false)}
+        onMouseLeave={() => setIsAutoPlaying(true)}
+      >
+        <div ref={skillsContainerRef} className={styles.skillsContainer}>
+          {getVisibleSkills().map((skill, index) => (
+            <div key={`${currentSlide}-${index}`} className={styles.skillItem}>
+              <div className={styles.skillImageWrapper}>
+                <Image
+                  src={skill.icon}
+                  alt={skill.name}
+                  width={128}
+                  height={128}
+                  className={styles.skillIcon}
+                />
+              </div>
+              <p className={styles.skillPercentage}>{skill.percentage}</p>
+              <p className={styles.skillName}>{skill.name}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className={styles.dotsContainer}>
+          {[...Array(totalSlides)].map((_, index) => (
+            <button
+              key={index}
+              onClick={() => handleDotClick(index)}
+              className={`${styles.dot} ${
+                currentSlide === index ? styles.activeDot : ""
+              }`}
+              aria-label={`Go to slide ${index + 1}`}
             />
-            <p className={styles.skillPercentage}>{skill.percentage}</p>
-            <p className={styles.skillName}>{skill.name}</p>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );
 };
-
-/* education container */
 
 const ResumeSection = () => {
   return (

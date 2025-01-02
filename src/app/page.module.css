@@ -1,3 +1,4 @@
+/* page.module.css */
 .container {
   min-height: 100vh;
   padding: 2rem 8rem;
@@ -101,6 +102,12 @@
   align-items: center;
   justify-content: center;
   color: #0f97b7;
+  transition: all 0.3s ease;
+}
+
+.socialLinks a:hover {
+  background: #0f97b7;
+  color: white;
 }
 
 .imageWrapper {
@@ -112,16 +119,10 @@
 .profileImage {
   border-radius: 2rem;
   object-fit: cover;
-}
-
-.profileImage {
   transition: transform 0.3s ease;
 }
 
 .profileImage:hover {
-  /* Choose one effect: */
-
-  /* Gentle shake */
   animation: shake 0.5s ease infinite;
 }
 
@@ -140,14 +141,16 @@
   }
 }
 
-/* skill Container Css*/
+/* Skills Section Styles */
 .skillsSection {
-  text-align: center;
+  background-color: #000000;
   padding: 60px 40px;
-  background-color: #000;
+  overflow: hidden;
+  text-align: center;
+  position: relative;
 }
 
-.skillsSection h1 {
+.skillsTitle {
   color: #0f97b7;
   font-size: 2.5rem;
   margin-bottom: 20px;
@@ -156,78 +159,141 @@
 .skillsDescription {
   max-width: 800px;
   margin: 0 auto 40px;
-  color: #fcfaf6;
+  color: #ffffff;
   line-height: 1.6;
+  font-size: 1.1rem;
+}
+
+.sliderWrapper {
+  position: relative;
+  max-width: 1280px;
+  margin: 0 auto;
+  overflow: hidden;
 }
 
 .skillsContainer {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(7, minmax(0, 1fr));
   gap: 20px;
-  max-width: 1200px;
   margin: 0 auto;
+  transition: transform 0.5s ease-in-out;
+  width: 100%;
   padding: 0 20px;
 }
 
 .skillItem {
-  background: rgba(130, 87, 230, 0.05);
-  border-radius: 10px;
+  background: #fffbef;
+  border-radius: 12px;
   padding: 20px;
-  width: 150px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  transition: transform 0.3s ease;
-  background: #fffbef;
+  transition: all 0.3s ease;
 }
 
 .skillItem:hover {
-  transform: translateY(-5px);
+  transform: translateY(-8px);
   background: #cfeaf1;
+  box-shadow: 0 10px 20px rgba(15, 151, 183, 0.1);
+}
+
+.skillImageWrapper {
+  position: relative;
+  width: 128px;
+  height: 128px;
+  margin-bottom: 15px;
 }
 
 .skillIcon {
-  width: 150px;
-  height: 150px;
-  margin-bottom: 15px;
-  padding-left: 10px;
-  padding-right: 10px;
+  filter: grayscale(100%);
+  transition: all 0.3s ease;
+  object-fit: contain;
+}
+
+.skillItem:hover .skillIcon {
+  filter: grayscale(0%);
+  transform: scale(1.05);
 }
 
 .skillPercentage {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #333;
+  color: #333333;
   margin: 10px 0;
 }
 
 .skillName {
   color: #18130e;
   font-weight: 500;
-}
-.skillName:hover {
-  color: #031e25;
+  transition: color 0.3s ease;
 }
 
-.skillIcon {
-  margin-bottom: 15px;
-  filter: grayscale(100%);
-  transition: filter 0.3s ease;
+.dotsContainer {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 32px;
 }
 
-.skillItem:hover .skillIcon {
-  filter: grayscale(0%);
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #9ca3af;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
 }
 
-/* education container */
+.activeDot {
+  width: 24px;
+  background-color: #0f97b7;
+  border-radius: 6px;
+}
 
+@media (max-width: 768px) {
+  .skillsSection {
+    padding: 40px 20px;
+  }
+
+  .skillsContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    padding: 0 20px;
+  }
+
+  .skillItem {
+    width: 100%;
+  }
+
+  .skillImageWrapper {
+    width: 100px;
+    height: 100px;
+  }
+
+  .skillsTitle {
+    font-size: 2rem;
+  }
+
+  .skillsDescription {
+    font-size: 1rem;
+    padding: 0 20px;
+  }
+
+  .skillIcon {
+    width: 70px;
+  }
+}
+
+/* Resume Section Styles */
 .resumeSection {
   display: flex;
   gap: 40px;
   background-color: #ffffff;
   padding: 120px;
   margin-top: 40px;
-  align-items: center;
 }
 
 .section {
@@ -269,6 +335,12 @@
   padding: 20px;
   margin-bottom: 20px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 .date {
@@ -292,7 +364,7 @@
   position: relative;
 }
 
-/* Mobile css For Banner Container*/
+/* Mobile Responsive Styles */
 @media (max-width: 768px) {
   .container {
     padding: 1rem;
@@ -309,67 +381,68 @@
   .subtitle {
     font-size: 3rem;
   }
-  .new {
-  }
-}
-/* Mobile css For Skill Container
 
-@media (max-width: 1200px) {
-  .skillsContainer {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (max-width: 768px) {
-  .skillsContainer {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 480px) {
-  .skillsContainer {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-*/
-@media (max-width: 768px) {
+  /* Skills Section Mobile Styles */
   .skillsSection {
-    padding: 40px 0;
-    overflow: hidden;
+    padding: 40px 20px;
   }
 
   .skillsContainer {
-    display: flex;
-    flex-wrap: nowrap;
-    gap: 15px;
-    padding: 20px;
+    grid-template-columns: repeat(2, 1fr);
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none; /* Firefox */
-  }
-
-  .skillsContainer::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, Opera */
+    grid-auto-flow: column;
+    grid-auto-columns: calc(50% - 10px);
+    padding: 10px;
+    gap: 15px;
   }
 
   .skillItem {
-    flex: 0 0 calc(50% - 10px);
-    scroll-snap-align: start;
-    min-width: 140px;
+    min-width: calc(50% - 10px);
+  }
+
+  .skillsTitle {
+    font-size: 2rem;
+  }
+
+  .skillsDescription {
+    font-size: 1rem;
+    padding: 0 20px;
+  }
+
+  /* Resume Section Mobile Styles */
+  .resumeSection {
+    flex-direction: column;
+    padding: 40px 20px;
+  }
+
+  .card {
+    margin-bottom: 15px;
+  }
+}
+
+/* Animation Keyframes */
+@keyframes slideIn {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
 
 /* Add smooth scrolling behavior */
 .skillsContainer {
   scroll-behavior: smooth;
-}
-
-/* mobile code for education container */
-
-@media (max-width: 768px) {
-  .resumeSection {
-    flex-direction: column;
-    padding: 10px;
-  }
 }
