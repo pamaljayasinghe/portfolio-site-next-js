@@ -767,7 +767,7 @@
 
 .viewProjectBtn {
   display: inline-block;
-  background: #6c5ce7;
+  background: #0f97b7;
   color: white;
   padding: 12px 30px;
   border-radius: 25px;
@@ -776,7 +776,7 @@
 }
 
 .viewProjectBtn:hover {
-  background: #5a4bd1;
+  background: #6fc1d4;
 }
 
 @media (max-width: 768px) {
