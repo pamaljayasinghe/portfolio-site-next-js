@@ -259,7 +259,7 @@ const works = [
     title:
       "NyxLab: Professional IT and Cloud Services Website for a French Client",
     category: "Webs",
-    image: "/work.png",
+    image: "/img/web4.png",
     url: "https://nyxlab.fr/",
     description:
       "Developed a modern and responsive website for NyxLab, a French company specializing in cloud services, IT management, and website creation. The site showcases their service offerings, emphasizes security and scalability, and provides an intuitive user experience to attract and engage potential clients.",
@@ -273,6 +273,24 @@ const works = [
     url: "https://fortitudeacademyofexcellence.com/",
     description:
       "Developed a professional and responsive website for Fortitude Academy of Excellence, a premier educational service provider in the United States. The site features detailed service offerings, including NCAA-certified coursework, ACT preparation, K-12 tutoring, and specialized support for students with Individualized Education Programs (IEP) or 504 Plans. It also includes user-friendly navigation, enrollment information, and contact forms to enhance user engagement.",
+  },
+  {
+    id: 5,
+    title: "Eco-Friendly Recycling App UI/UX Design",
+    category: "UX/UI",
+    image: "/img/ux1.png",
+    url: "https://www.figma.com/design/7spJegU58kXdzA0nB1ZsCm/Untitled?node-id=413-413&t=j2dTS1dxosMVdbw1-1",
+    description:
+      "A vibrant and intuitive mobile application promoting sustainability and recycling. The design includes a step-by-step onboarding process, feature guides, user engagement for environmental events, and an organized system for tracking recycling efforts.",
+  },
+  {
+    id: 6,
+    title: "Fashion Retail Mobile App Design",
+    category: "UX/UI",
+    image: "/img/ux2.png",
+    url: "https://www.figma.com/design/pg18sEAw67nDPZ7QXrOEo6/Personal-Mobiles?node-id=0-1&t=jPEj26r5KCbTH79y-1",
+    description:
+      "A sleek and modern mobile app tailored for fashion retail. This design focuses on user-centric experiences, including client management, personalized shopping, QR code integration, and seamless login and shop navigation.",
   },
 ];
 
