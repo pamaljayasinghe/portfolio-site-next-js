@@ -102,9 +102,11 @@ const HomeContainer = () => {
             experiences that inspire and connect.
           </p>
           <div className={styles.actions}>
-            <button className={styles.downloadBtn}>
-              Download CV <span>↓</span>
-            </button>
+            <Link href="/img/CV.pdf" target="_blank" download>
+              <button className={styles.downloadBtn}>
+                Download CV <span>↓</span>
+              </button>
+            </Link>
             <div className={styles.socialLinks}>
               <Link href="mailto:hello@pamal.me" aria-label="Mail">
                 <FaEnvelope />
