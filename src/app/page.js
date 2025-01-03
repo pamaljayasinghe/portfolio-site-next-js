@@ -10,6 +10,7 @@ import {
   FaDribbble,
   FaGithub,
   FaMedium,
+  FaEnvelope,
 } from "react-icons/fa";
 import styles from "./page.module.css";
 
@@ -31,12 +32,12 @@ const HomeContainer = () => {
 
         {/* Desktop Menu */}
         <div className={`${styles.menu} ${styles.desktopMenu}`}>
-          <Link href="/services">Services</Link>
-          <Link href="/works">Works</Link>
-          <Link href="/resume">Resume</Link>
-          <Link href="/skills">Skills</Link>
-          <Link href="/testimonials">Testimonials</Link>
-          <Link href="/contact">Contact</Link>
+          <Link href="#sec1">About me</Link>
+          <Link href="#sec2">Skills</Link>
+          <Link href="#sec3">Education</Link>
+          <Link href="#sec4">Recent Works</Link>
+          <Link href="#sec5">Blog</Link>
+          <Link href="mailto:hello@pamal.me">hello@pamal.me</Link>
         </div>
 
         {/* Mobile Menu Toggle Button */}
@@ -55,59 +56,75 @@ const HomeContainer = () => {
           }`}
         >
           <div className={styles.mobileMenuContent}>
-            <Link href="/services" onClick={() => setIsMenuOpen(false)}>
-              Services
+            <Link href="#sec1" onClick={() => setIsMenuOpen(false)}>
+              About Me
             </Link>
-            <Link href="/works" onClick={() => setIsMenuOpen(false)}>
-              Works
-            </Link>
-            <Link href="/resume" onClick={() => setIsMenuOpen(false)}>
-              Resume
-            </Link>
-            <Link href="/skills" onClick={() => setIsMenuOpen(false)}>
+            <Link href="#sec2" onClick={() => setIsMenuOpen(false)}>
               Skills
             </Link>
-            <Link href="/testimonials" onClick={() => setIsMenuOpen(false)}>
-              Testimonials
+            <Link href="#sec3" onClick={() => setIsMenuOpen(false)}>
+              Education
             </Link>
-            <Link href="/contact" onClick={() => setIsMenuOpen(false)}>
-              Contact
+            <Link href="#sec4" onClick={() => setIsMenuOpen(false)}>
+              Recent Works
+            </Link>
+            <Link href="#sec5" onClick={() => setIsMenuOpen(false)}>
+              Blog
+            </Link>
+            <Link
+              href="mailto:hello@pamal.me"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Contact Me
             </Link>
           </div>
         </div>
 
         {/* Desktop Hire Button */}
-        <button className={`${styles.hireButton} ${styles.desktopHireButton}`}>
-          Hire me!
-        </button>
+        <Link href="mailto:hello@pamal.me">
+          <button
+            className={`${styles.hireButton} ${styles.desktopHireButton}`}
+          >
+            Contact me!
+          </button>
+        </Link>
       </nav>
 
-      <main className={styles.main}>
+      <main className={styles.main} id="sec1">
         <div className={styles.content}>
           <h2 className={styles.title}>I am Pamal Jayasinghe</h2>
           <h1 className={styles.subtitle}>
-            Web Developer +<br />
-            UX Designer
+            Code + Design =<br />
+            Impact
           </h1>
           <p className={styles.description}>
-            I break down complex user experience problems to create integrity
-            focussed solutions that connect billions of people
+            I blend creativity and technology to craft seamless digital
+            experiences that inspire and connect.
           </p>
           <div className={styles.actions}>
             <button className={styles.downloadBtn}>
               Download CV <span>↓</span>
             </button>
             <div className={styles.socialLinks}>
-              <Link href="#" aria-label="Facebook">
-                <FaFacebookF />
+              <Link href="mailto:hello@pamal.me" aria-label="Mail">
+                <FaEnvelope />
               </Link>
-              <Link href="#" aria-label="LinkedIn">
+              <Link
+                href="https://www.linkedin.com/in/pamaljayasinghe/"
+                aria-label="LinkedIn"
+              >
                 <FaLinkedinIn />
               </Link>
-              <Link href="#" aria-label="Dribbble">
+              <Link
+                href="https://medium.com/@pamaljayasinghe340"
+                aria-label="Medium"
+              >
                 <FaMedium />
               </Link>
-              <Link href="#" aria-label="GitHub">
+              <Link
+                href="https://github.com/pamaljayasinghe"
+                aria-label="GitHub"
+              >
                 <FaGithub />
               </Link>
             </div>
@@ -135,20 +152,20 @@ const SkillsSection = () => {
   const skillsContainerRef = useRef(null);
 
   const skills = [
-    { name: "Photoshop", percentage: "92%", icon: "/icons/photoshop.png" },
+    { name: "Photoshop", percentage: "80%", icon: "/icons/photoshop.png" },
     { name: "Java", percentage: "80%", icon: "/icons/java.png" },
-    { name: "Python", percentage: "85%", icon: "/icons/python.png" },
-    { name: "WordPress", percentage: "99%", icon: "/icons/wordpress.png" },
-    { name: "React", percentage: "89%", icon: "/icons/react.png" },
-    { name: "MongoDB", percentage: "93%", icon: "/icons/mongodb.png" },
-    { name: "JavaScript", percentage: "93%", icon: "/icons/js.png" },
-    { name: "Html", percentage: "93%", icon: "/icons/html.png" },
-    { name: "CSS", percentage: "93%", icon: "/icons/css.png" },
-    { name: "MySql", percentage: "93%", icon: "/icons/mysql.png" },
-    { name: "Node.js", percentage: "93%", icon: "/icons/node.png" },
-    { name: "Next.js", percentage: "93%", icon: "/icons/next.png" },
-    { name: "Spring Boot", percentage: "93%", icon: "/icons/spring.png" },
-    { name: "Flutter", percentage: "93%", icon: "/icons/flutter.png" },
+    { name: "Python", percentage: "81%", icon: "/icons/python.png" },
+    { name: "WordPress", percentage: "90%", icon: "/icons/wordpress.png" },
+    { name: "React", percentage: "80%", icon: "/icons/react.png" },
+    { name: "MongoDB", percentage: "70%", icon: "/icons/mongodb.png" },
+    { name: "JavaScript", percentage: "75%", icon: "/icons/js.png" },
+    { name: "Html", percentage: "88%", icon: "/icons/html.png" },
+    { name: "CSS", percentage: "88%", icon: "/icons/css.png" },
+    { name: "MySql", percentage: "70%", icon: "/icons/mysql.png" },
+    { name: "Node.js", percentage: "70%", icon: "/icons/node.png" },
+    { name: "Next.js", percentage: "80%", icon: "/icons/next.png" },
+    { name: "Spring Boot", percentage: "71%", icon: "/icons/spring.png" },
+    { name: "Flutter", percentage: "72%", icon: "/icons/flutter.png" },
   ];
 
   const isMobile = typeof window !== "undefined" && window.innerWidth <= 768;
@@ -174,11 +191,11 @@ const SkillsSection = () => {
   };
 
   return (
-    <section className={styles.skillsSection}>
+    <section className={styles.skillsSection} id="sec2">
       <h1 className={styles.skillsTitle}>My Skills</h1>
       <p className={styles.skillsDescription}>
-        We put your ideas and thus your wishes in the form of a unique web
-        project that inspires you and your customers.
+        Turning ideas into seamless digital solutions with expertise in coding
+        and design.
       </p>
 
       <div
@@ -223,7 +240,7 @@ const SkillsSection = () => {
 /* Resume */
 const ResumeSection = () => {
   return (
-    <section className={styles.resumeSection}>
+    <section className={styles.resumeSection} id="sec3">
       <div className={styles.section}>
         <div className={styles.header}>
           <img
@@ -365,7 +382,7 @@ const WorksSection = () => {
   };
 
   return (
-    <section className={styles.worksSection}>
+    <section className={styles.worksSection} id="sec4">
       <h2 className={styles.worktitle}>My Recent Works</h2>
 
       <div className={styles.filterMenu}>
@@ -557,11 +574,10 @@ const BlogSection = () => {
   ];
 
   return (
-    <section className={styles.blogSection}>
+    <section className={styles.blogSection} id="sec5">
       <h1 className={styles.blogTitle}>Recent Blogs</h1>
       <p className={styles.blogDescription}>
-        We put your ideas and thus your wishes in the form of a unique web
-        project that inspires you and you customers.
+        Insights and ideas from my latest projects and passions.
       </p>
 
       <div className={styles.blogGrid}>
@@ -600,13 +616,15 @@ const Footer = () => {
     <footer className={styles.footer}>
       <div className={styles.footerContent}>
         <div className={styles.footerLogo}>
-          <Image
-            src="/img/logolight.gif"
-            alt="Logo"
-            width={200}
-            height={40}
-            className={styles.logo}
-          />
+          <Link href="/">
+            <Image
+              src="/img/logolight.gif"
+              alt="Logo"
+              width={200}
+              height={40}
+              className={styles.logo}
+            />
+          </Link>
         </div>
 
         <nav className={styles.footerNav}>

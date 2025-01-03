@@ -5,11 +5,6 @@
   background: #fcfaf6;
 }
 
-.logo img {
-  max-height: 40px;
-  width: auto;
-}
-
 .desktopMenu {
   display: flex;
   gap: 2rem;
@@ -106,6 +101,9 @@
   .nav {
     margin-bottom: 2rem;
   }
+  .logo img {
+    margin-top: 0px;
+  }
 }
 .nav {
   position: relative;
@@ -124,8 +122,9 @@
 .menu a {
   color: #031e25;
   text-decoration: none;
-  font-size: 1rem;
+  font-size: 1.1rem;
   transition: color 0.3s ease;
+  font-weight: 800;
 }
 
 .menu a:hover {
@@ -133,8 +132,9 @@
 }
 
 .logo img {
-  max-height: 40px;
-  width: auto;
+  max-height: 50px;
+  width: 250px;
+  margin-top: 20px;
 }
 .menuToggle {
   display: none;
@@ -162,6 +162,7 @@
 
   .menuToggle {
     display: block;
+    margin-top: -40px;
   }
 
   .desktopButton {
@@ -209,6 +210,13 @@
 
   .logo {
     z-index: 1000;
+  }
+  .main {
+    margin-top: -60px;
+  }
+  .profileImage {
+    width: 330px;
+    height: 330px;
   }
 }
 
