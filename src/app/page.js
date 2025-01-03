@@ -628,20 +628,23 @@ const Footer = () => {
         </div>
 
         <nav className={styles.footerNav}>
-          <Link href="/services" className={styles.navLink}>
-            Services.
+          <Link href="#sec1" className={styles.navLink}>
+            About me
           </Link>
-          <Link href="/works" className={styles.navLink}>
-            Works.
+          <Link href="#sec2" className={styles.navLink}>
+            Skills
           </Link>
-          <Link href="/skills" className={styles.navLink}>
-            Skills.
+          <Link href="#sec3" className={styles.navLink}>
+            Education
           </Link>
-          <Link href="/experience" className={styles.navLink}>
-            Experience.
+          <Link href="#sec4" className={styles.navLink}>
+            Recent Works
           </Link>
-          <Link href="/blog" className={styles.navLink}>
-            Blog.
+          <Link href="#sec5" className={styles.navLink}>
+            Blog
+          </Link>
+          <Link href="mailto:hello@pamal.me" className={styles.navLink}>
+            Contact
           </Link>
         </nav>
 
