@@ -625,6 +625,7 @@
 
 /* Previous Work CSS */
 
+/* Works Section Container */
 .worksSection {
   padding: 80px 120px;
   background: #fcfaf6;
@@ -637,11 +638,13 @@
   margin-bottom: 40px;
 }
 
+/* Filter Menu Styles */
 .filterMenu {
   display: flex;
   justify-content: center;
   gap: 20px;
   margin-bottom: 40px;
+  flex-wrap: wrap;
 }
 
 .filterButton {
@@ -661,23 +664,26 @@
   color: white;
 }
 
+/* Works Grid Layout */
 .worksGrid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 30px;
 }
 
+/* Work Card Styles */
 .workCard {
-  text-decoration: none;
   background: white;
   border-radius: 15px;
   overflow: hidden;
-  transition: transform 0.3s ease;
+  transition: all 0.3s ease;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
 }
 
 .workCard:hover {
   transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
 
 .imageWrapper {
@@ -690,8 +696,29 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.3s ease;
 }
 
+.workCard:hover .workImage {
+  transform: scale(1.05);
+}
+
+/* Status Badge Styles */
+.statusBadge {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: #ff9800;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  z-index: 1;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Work Info Styles */
 .workInfo {
   padding: 20px;
 }
@@ -699,30 +726,33 @@
 .workInfo h3 {
   color: #333;
   margin: 0 0 10px 0;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
+  line-height: 1.4;
 }
 
 .workInfo p {
   color: #fcfaf6;
-  display: inline;
+  display: inline-block;
   margin: 0;
-  padding: 4px 20px 4px 20px;
+  padding: 4px 20px;
   background-color: #0f97b7;
   border-radius: 10px;
-  text-align: center;
+  font-size: 0.9rem;
 }
 
+/* Modal Styles */
 .modalOverlay {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.8);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;
+  padding: 20px;
 }
 
 .modal {
@@ -731,20 +761,43 @@
   padding: 30px;
   position: relative;
   width: 90%;
-  max-width: 600px;
+  max-width: 800px;
   max-height: 90vh;
   overflow-y: auto;
+  animation: modalFadeIn 0.3s ease;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .closeButton {
   position: absolute;
-  top: 15px;
-  right: 15px;
+  top: 20px;
+  right: 20px;
   background: none;
   border: none;
   font-size: 24px;
   cursor: pointer;
   color: #333;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.closeButton:hover {
+  background: rgba(0, 0, 0, 0.1);
 }
 
 .modalContent {
@@ -766,10 +819,12 @@
 
 .modalDescription {
   color: #666;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
   line-height: 1.6;
+  text-align: left;
 }
 
+/* Project Status Buttons/Labels */
 .viewProjectBtn {
   display: inline-block;
   background: #0f97b7;
@@ -777,11 +832,53 @@
   padding: 12px 30px;
   border-radius: 25px;
   text-decoration: none;
-  transition: background 0.3s ease;
+  transition: all 0.3s ease;
+  font-weight: 500;
 }
 
 .viewProjectBtn:hover {
-  background: #6fc1d4;
+  background: #0d86a3;
+  transform: translateY(-2px);
+}
+
+.ongoingProject,
+.comingSoonProject {
+  display: inline-block;
+  padding: 12px 30px;
+  border-radius: 25px;
+  text-decoration: none;
+  cursor: default;
+  font-weight: 500;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.ongoingProject {
+  background: #ff9800;
+  box-shadow: 0 2px 4px rgba(255, 152, 0, 0.3);
+}
+
+.comingSoonProject {
+  background: #9c27b0;
+  box-shadow: 0 2px 4px rgba(156, 39, 176, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .worksSection {
+    padding: 60px 80px;
+  }
+}
+
+@media (max-width: 992px) {
+  .worksSection {
+    padding: 50px 40px;
+  }
+
+  .worktitle {
+    font-size: 2rem;
+  }
 }
 
 @media (max-width: 768px) {
@@ -794,12 +891,49 @@
   }
 
   .filterMenu {
-    flex-wrap: wrap;
     gap: 10px;
   }
 
   .filterButton {
     padding: 6px 15px;
+    font-size: 0.9rem;
+  }
+
+  .workInfo h3 {
+    font-size: 1.1rem;
+  }
+
+  .modalContent h3 {
+    font-size: 1.5rem;
+  }
+
+  .imageWrapper {
+    height: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .worksSection {
+    padding: 30px 15px;
+  }
+
+  .worktitle {
+    font-size: 1.8rem;
+  }
+
+  .filterButton {
+    padding: 5px 12px;
+    font-size: 0.85rem;
+  }
+
+  .modalContent {
+    padding: 15px;
+  }
+
+  .viewProjectBtn,
+  .ongoingProject,
+  .comingSoonProject {
+    padding: 10px 20px;
     font-size: 0.9rem;
   }
 }

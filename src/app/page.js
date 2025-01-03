@@ -133,7 +133,7 @@ const HomeContainer = () => {
         <div className={styles.imageWrapper}>
           <Image
             src="/img/me.png"
-            alt="Gerold's profile"
+            alt="Pamal's profile"
             width={500}
             height={500}
             priority
@@ -309,6 +309,7 @@ const works = [
     title: "Barbershop Kel: Modern Barber Website Design for a Dutch Client",
     category: "Webs",
     image: "/img/web1.png",
+    status: "completed",
     url: "https://www.barbershopkel.nl/",
     description:
       "Developed a sleek and user-friendly website for Barbershop Kel, a contemporary barbershop in Goor, Netherlands. The site features online booking, service listings, and responsive design to enhance client engagement.",
@@ -319,6 +320,7 @@ const works = [
       "Window Cleaning Round Rock TX: Comprehensive Website Design for a UK Client",
     category: "Webs",
     image: "/img/web3.png",
+    status: "completed",
     url: "https://windowcleaningroundrocktx.com/",
     description:
       "Developed a professional and responsive website for Window Cleaning Round Rock TX, a family-owned business offering window cleaning, pressure washing, gutter cleaning, and Christmas lighting services in Round Rock, Texas. The site features service overviews, customer testimonials, and an intuitive contact form to enhance user engagement.",
@@ -329,6 +331,7 @@ const works = [
       "NyxLab: Professional IT and Cloud Services Website for a French Client",
     category: "Webs",
     image: "/img/web4.png",
+    status: "completed",
     url: "https://nyxlab.fr/",
     description:
       "Developed a modern and responsive website for NyxLab, a French company specializing in cloud services, IT management, and website creation. The site showcases their service offerings, emphasizes security and scalability, and provides an intuitive user experience to attract and engage potential clients.",
@@ -339,6 +342,7 @@ const works = [
       "Fortitude Academy of Excellence: Comprehensive Educational Services Website for a U.S. Client",
     category: "Webs",
     image: "/img/web2.png",
+    status: "completed",
     url: "https://fortitudeacademyofexcellence.com/",
     description:
       "Developed a professional and responsive website for Fortitude Academy of Excellence, a premier educational service provider in the United States. The site features detailed service offerings, including NCAA-certified coursework, ACT preparation, K-12 tutoring, and specialized support for students with Individualized Education Programs (IEP) or 504 Plans. It also includes user-friendly navigation, enrollment information, and contact forms to enhance user engagement.",
@@ -348,6 +352,7 @@ const works = [
     title: "Eco-Friendly Recycling App UI/UX Design",
     category: "UX/UI",
     image: "/img/ux1.png",
+    status: "completed",
     url: "https://www.figma.com/design/7spJegU58kXdzA0nB1ZsCm/Untitled?node-id=413-413&t=j2dTS1dxosMVdbw1-1",
     description:
       "A vibrant and intuitive mobile application promoting sustainability and recycling. The design includes a step-by-step onboarding process, feature guides, user engagement for environmental events, and an organized system for tracking recycling efforts.",
@@ -357,9 +362,20 @@ const works = [
     title: "Fashion Retail Mobile App Design",
     category: "UX/UI",
     image: "/img/ux2.png",
+    status: "completed",
     url: "https://www.figma.com/design/pg18sEAw67nDPZ7QXrOEo6/Personal-Mobiles?node-id=0-1&t=jPEj26r5KCbTH79y-1",
     description:
       "A sleek and modern mobile app tailored for fashion retail. This design focuses on user-centric experiences, including client management, personalized shopping, QR code integration, and seamless login and shop navigation.",
+  },
+  {
+    id: 7,
+    title: "TreeVital: AI-Powered Tree Health Companion",
+    category: "App",
+    image: "/img/app1.png",
+    status: "ongoing",
+    url: "#",
+    description:
+      "A Python and Flutter-based app using machine learning to identify tree species and diagnose diseases, offering an intuitive tool for tree health monitoring.",
   },
 ];
 
@@ -379,6 +395,23 @@ const WorksSection = () => {
 
   const closeModal = () => {
     setSelectedWork(null);
+  };
+
+  const getProjectButton = (work) => {
+    switch (work.status) {
+      case "ongoing":
+        return <div className={styles.ongoingProject}>Ongoing Project</div>;
+      case "completed":
+        return (
+          <Link href={work.url} className={styles.viewProjectBtn}>
+            View Project
+          </Link>
+        );
+      case "coming-soon":
+        return <div className={styles.comingSoonProject}>Coming Soon</div>;
+      default:
+        return null;
+    }
   };
 
   return (
@@ -414,6 +447,9 @@ const WorksSection = () => {
                 height={300}
                 className={styles.workImage}
               />
+              {work.status === "ongoing" && (
+                <span className={styles.statusBadge}>Ongoing</span>
+              )}
             </div>
             <div className={styles.workInfo}>
               <h3>{work.title}</h3>
@@ -441,9 +477,7 @@ const WorksSection = () => {
               <p className={styles.modalDescription}>
                 {selectedWork.description}
               </p>
-              <Link href={selectedWork.url} className={styles.viewProjectBtn}>
-                View Project
-              </Link>
+              {getProjectButton(selectedWork)}
             </div>
           </div>
         </div>
