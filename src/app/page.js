@@ -14,7 +14,7 @@ import {
 } from "react-icons/fa";
 import styles from "./page.module.css";
 
-import SEOHead from "../components/SEOHead";
+import SEOHead from "./components/SEOHead";
 
 const HomeContainer = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
