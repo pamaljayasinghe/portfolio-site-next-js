@@ -14,6 +14,8 @@ import {
 } from "react-icons/fa";
 import styles from "./page.module.css";
 
+import SEOHead from "../components/SEOHead";
+
 const HomeContainer = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -695,6 +697,10 @@ const Footer = () => {
 export default function Home() {
   return (
     <>
+      <SEOHead
+        title="Pamal Jayasinghe | Creative Digital Portfolio"
+        description="Welcome to my portfolio showcasing web development, design projects, and professional expertise. Explore my work and let's create something amazing together."
+      />
       <CodeRainOverlay />
       <HomeContainer />
       <SkillsSection />

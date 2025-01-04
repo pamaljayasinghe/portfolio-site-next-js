@@ -1,25 +1,10 @@
-export default function handler(req, res) {
-  // Set appropriate XML header
-  res.setHeader('Content-Type', 'text/xml')
-
-  // Generate sitemap XML
-  const xml = `<?xml version="1.0" encoding="UTF-8"?>
-    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-      <url>
-        <loc>https://pamal.me</loc>
-        <lastmod>${new Date().toISOString()}</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>1.0</priority>
-      </url>
-      <url>
-        <loc>https://your-website.com/your-keyword-page</loc>
-        <lastmod>${new Date().toISOString()}</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-      </url>
-    </urlset>`
-
-  // Send the XML response
-  res.write(xml)
-  res.end()
-}
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Home Page -->
+  <url>
+    <loc>https://pamal.me</loc>
+    <lastmod>2024-01-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  </urlset>
