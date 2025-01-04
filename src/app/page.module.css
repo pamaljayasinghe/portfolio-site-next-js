@@ -864,6 +864,65 @@
   box-shadow: 0 2px 4px rgba(156, 39, 176, 0.3);
 }
 
+.viewMoreContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.viewMoreButton {
+  background: transparent;
+  border: 2px solid #0f97b7;
+  color: #0f97b7;
+  padding: 12px 30px;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.viewMoreButton:hover {
+  background: #0f97b7;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(15, 151, 183, 0.2);
+}
+
+.viewMoreButton:active {
+  transform: translateY(0);
+}
+
+/* Animation for new cards */
+.workCard {
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .viewMoreContainer {
+    margin-top: 30px;
+  }
+
+  .viewMoreButton {
+    padding: 10px 25px;
+    font-size: 0.9rem;
+  }
+}
+
 /* Responsive Design */
 @media (max-width: 1200px) {
   .worksSection {

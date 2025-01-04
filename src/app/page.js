@@ -388,10 +388,28 @@ const categories = ["All", "Webs", "App", "Other", "UX/UI"];
 const WorksSection = () => {
   const [activeCategory, setActiveCategory] = useState("All");
   const [selectedWork, setSelectedWork] = useState(null);
+  const [visibleProjects, setVisibleProjects] = useState(8);
+  const projectsPerPage = 8;
 
+  // Filter works based on category
   const filteredWorks = works.filter((work) =>
     activeCategory === "All" ? true : work.category === activeCategory
   );
+
+  // Get visible projects
+  const displayedWorks = filteredWorks.slice(0, visibleProjects);
+
+  // Check if there are more projects to show
+  const hasMore = filteredWorks.length > visibleProjects;
+
+  const handleViewMore = () => {
+    setVisibleProjects((prev) => prev + projectsPerPage);
+  };
+
+  const handleCategoryChange = (category) => {
+    setActiveCategory(category);
+    setVisibleProjects(projectsPerPage); // Reset visible projects when changing category
+  };
 
   const openModal = (work) => {
     setSelectedWork(work);
@@ -399,23 +417,6 @@ const WorksSection = () => {
 
   const closeModal = () => {
     setSelectedWork(null);
-  };
-
-  const getProjectButton = (work) => {
-    switch (work.status) {
-      case "ongoing":
-        return <div className={styles.ongoingProject}>Ongoing Project</div>;
-      case "completed":
-        return (
-          <Link href={work.url} className={styles.viewProjectBtn}>
-            View Project
-          </Link>
-        );
-      case "coming-soon":
-        return <div className={styles.comingSoonProject}>Coming Soon</div>;
-      default:
-        return null;
-    }
   };
 
   return (
@@ -429,7 +430,7 @@ const WorksSection = () => {
             className={`${styles.filterButton} ${
               activeCategory === category ? styles.active : ""
             }`}
-            onClick={() => setActiveCategory(category)}
+            onClick={() => handleCategoryChange(category)}
           >
             {category}
           </button>
@@ -437,7 +438,7 @@ const WorksSection = () => {
       </div>
 
       <div className={styles.worksGrid}>
-        {filteredWorks.map((work) => (
+        {displayedWorks.map((work) => (
           <div
             key={work.id}
             className={styles.workCard}
@@ -463,6 +464,14 @@ const WorksSection = () => {
         ))}
       </div>
 
+      {hasMore && (
+        <div className={styles.viewMoreContainer}>
+          <button onClick={handleViewMore} className={styles.viewMoreButton}>
+            View More Projects
+          </button>
+        </div>
+      )}
+
       {selectedWork && (
         <div className={styles.modalOverlay} onClick={closeModal}>
           <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
@@ -481,7 +490,13 @@ const WorksSection = () => {
               <p className={styles.modalDescription}>
                 {selectedWork.description}
               </p>
-              {getProjectButton(selectedWork)}
+              {selectedWork.status === "ongoing" ? (
+                <div className={styles.ongoingProject}>Ongoing Project</div>
+              ) : (
+                <Link href={selectedWork.url} className={styles.viewProjectBtn}>
+                  View Project
+                </Link>
+              )}
             </div>
           </div>
         </div>
