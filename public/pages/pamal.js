@@ -43,7 +43,7 @@ export default function SEOHead({
     </Head>
   );
 }
-=======
+
 import Head from "next/head";
 export default function SEOHead({
   title = "Pamal Jayasinghe | Web Developer & Digital Creator",
