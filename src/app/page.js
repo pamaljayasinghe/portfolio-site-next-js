@@ -104,7 +104,7 @@ const HomeContainer = () => {
             experiences that inspire and connect.
           </p>
           <div className={styles.actions}>
-            <Link href="/img/CV.pdf" target="_blank" download>
+            <Link href="/img/pamal_cv.pdf" target="_blank" download>
               <button className={styles.downloadBtn}>
                 Download CV <span>↓</span>
               </button>
