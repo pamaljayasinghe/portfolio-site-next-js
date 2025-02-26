@@ -381,6 +381,16 @@ const works = [
     description:
       "A Python and Flutter-based app using machine learning to identify tree species and diagnose diseases, offering an intuitive tool for tree health monitoring.",
   },
+  {
+    id: 8,
+    title: "3D Interactive Marketing Site",
+    category: "Other",
+    image: "/img/marketsite.webp",
+    status: "completed",
+    url: "https://sdgp-marketing-web.vercel.app/",
+    description:
+      "A dynamic 3D-powered marketing website for our upcoming app. Built with Next.js, React Three Fiber, and Framer Motion to deliver an immersive experience with interactive animations and 3D visuals. 🚀",
+  },
 ];
 
 const categories = ["All", "Webs", "App", "Other", "UX/UI"];
