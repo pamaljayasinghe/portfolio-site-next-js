@@ -628,11 +628,11 @@ const BlogSection = () => {
     {
       id: 3,
       category: "CODING",
-      title: "Vite.js vs Next.js",
-      date: "Jan 03, 2025",
+      title: "Here is How I Created and Optimized a 3D Marketing Website",
+      date: "Feb 27, 2025",
       comments: "No Comments",
-      image: "/img/artical3.png",
-      link: "#",
+      image: "/img/artical4.png",
+      link: "https://medium.com/@pamaljayasinghe340/heres-how-i-created-and-optimized-a-3d-marketing-website-679cb48bf410",
     },
   ];
 
