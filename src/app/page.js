@@ -391,6 +391,16 @@ const works = [
     description:
       "A dynamic 3D-powered marketing website for our upcoming app. Built with Next.js, React Three Fiber, and Framer Motion to deliver an immersive experience with interactive animations and 3D visuals. 🚀",
   },
+  {
+    id: 9,
+    title: "Timeless Wedding Films by Pinky Promise Weddings",
+    category: "webs",
+    image: "/img/web5.png",
+    status: "completed",
+    url: "#",
+    description:
+      "Pinky Promise Weddings crafts cinematic wedding films that let couples relive their special moments forever. Their professional and approachable team ensures each video becomes a cherished keepsake.",
+  },
 ];
 
 const categories = ["All", "Webs", "App", "Other", "UX/UI"];
